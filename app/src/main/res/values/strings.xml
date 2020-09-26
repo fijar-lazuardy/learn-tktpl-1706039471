@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">TKTPL</string>
+    <string name="input_celsius_order">Input the celsius degree here</string>
+    <string name="celsius_placeholder">Example: 20</string>
+    <string name="convert_button">Convert</string>
 </resources>
