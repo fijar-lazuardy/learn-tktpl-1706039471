@@ -12,4 +12,10 @@ class DegreeActivityUnitTest {
         val convertedDegree = model.convertDegree(0.0)
         assertEquals(convertedDegree, 32.0, 0.2)
     }
+
+    @Test
+    fun testDegreeDisplayedOnUI() {
+        val convertedDegree = model.degreeToDisplayOnUI("0")
+        assertEquals(convertedDegree, "32\u00B0F")
+    }
 }

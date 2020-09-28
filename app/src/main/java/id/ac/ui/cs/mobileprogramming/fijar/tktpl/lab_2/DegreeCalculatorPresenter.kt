@@ -8,8 +8,8 @@ class DegreeCalculatorPresenter(private var degreeCalculator: DegreeCalculator?,
 
     }
 
-    fun convertDegree(celsius: Double): Double {
-        return degreeModel.convertDegree(celsius)
+    fun convertDegree(celsius: String): String {
+        return degreeModel.degreeToDisplayOnUI(celsius)
     }
 
     fun onDestroy() {

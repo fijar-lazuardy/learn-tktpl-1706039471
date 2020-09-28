@@ -7,6 +7,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import id.ac.ui.cs.mobileprogramming.fijar.tktpl.R
 import kotlinx.android.synthetic.main.activity_degree_converter.*
+import java.math.RoundingMode
+import java.text.DecimalFormat
 
 class DegreeConverterActivity: AppCompatActivity(), DegreeCalculator {
     private lateinit var presenter: DegreeCalculatorPresenter
@@ -17,15 +19,15 @@ class DegreeConverterActivity: AppCompatActivity(), DegreeCalculator {
         setContentView(R.layout.activity_degree_converter)
 
         var degreeInput = findViewById<EditText>(R.id.degreeInput)
-        var convertedDegree = findViewById<TextView>(R.id.converted_degree)
+        val convertedDegree = findViewById<TextView>(R.id.converted_degree)
         convertButton = findViewById(R.id.degree_convert_button)
         convertButton.setOnClickListener{
-            convertedDegree.text = convertDegree().toString()
+            convertedDegree.text = convertDegree()
         }
         presenter = DegreeCalculatorPresenter(this, DegreeModel())
     }
 
-    override fun convertDegree(): Double {
-        return presenter.convertDegree(degreeInput.text.toString().toDouble())
+    override fun convertDegree(): String {
+        return presenter.convertDegree(degreeInput.text.toString())
     }
 }
