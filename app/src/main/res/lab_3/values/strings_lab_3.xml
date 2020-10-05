@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="exit_confirmation">Are you sure to exit application?</string>
+    <string name="yes_confirmation">YES</string>
+    <string name="no_confirmation">NO</string>
+</resources>

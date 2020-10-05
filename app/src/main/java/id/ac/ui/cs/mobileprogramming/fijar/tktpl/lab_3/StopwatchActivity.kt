@@ -27,19 +27,6 @@ class StopwatchActivity : AppCompatActivity() {
         runTimer()
     }
 
-    override fun onBackPressed() {
-        AlertDialog.Builder(this)
-            .setMessage("Are you sure to close?")
-            .setPositiveButton("YES") {
-                _, _ -> super.onBackPressed()
-                finish()
-            }
-            .setNegativeButton("NO") {
-                _, _ ->
-            }
-            .show()
-    }
-
     override fun onSaveInstanceState(savedInstanceState: Bundle) {
         savedInstanceState.putInt("second", second)
         savedInstanceState.putBoolean("isRunning", isRunning)
@@ -51,7 +38,7 @@ class StopwatchActivity : AppCompatActivity() {
         isRunning = true
     }
 
-    fun onClickStop(v: View) {
+    fun onClickPause(v: View) {
         isRunning = false
     }
 
@@ -82,6 +69,21 @@ class StopwatchActivity : AppCompatActivity() {
                 handler.postDelayed(this, 1000)
             }
         })
+    }
+
+
+
+    override fun onBackPressed() {
+        AlertDialog.Builder(this)
+            .setMessage(R.string.exit_confirmation)
+            .setPositiveButton(R.string.yes_confirmation) {
+                    _, _ -> super.onBackPressed()
+                finish()
+            }
+            .setNegativeButton(R.string.no_confirmation) {
+                    _, _ ->
+            }
+            .show()
     }
     
 }
