@@ -4,15 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".lab_4.Lab4Activity">
+    tools:context=".lab_4.ui.ResultPersonFragment">
 
-    <FrameLayout
-        android:id="@+id/fragment_holder"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/good_luck_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/person_good_luck"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
