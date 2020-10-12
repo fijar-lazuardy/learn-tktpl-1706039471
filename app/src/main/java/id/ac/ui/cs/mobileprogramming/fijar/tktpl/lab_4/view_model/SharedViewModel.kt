@@ -7,7 +7,6 @@ import id.ac.ui.cs.mobileprogramming.fijar.tktpl.lab_4.model.Person
 import java.lang.Error
 
 class SharedViewModel: ViewModel() {
-    private val personMutableList = mutableListOf<Person>()
     val submittedPerson = MutableLiveData<Person>()
 
     fun submitNameAndAge(name: String, ageString: String) {
