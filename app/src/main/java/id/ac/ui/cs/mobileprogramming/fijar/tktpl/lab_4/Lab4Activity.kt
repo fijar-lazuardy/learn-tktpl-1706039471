@@ -12,8 +12,6 @@ class Lab4Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.lab_4)
 
-        val viewModel = ViewModelProvider(this)[SharedViewModel::class.java]
-
         val fragmentManager = supportFragmentManager.beginTransaction()
         fragmentManager.add(R.id.fragment_holder, InputPersonFragment())
         fragmentManager.commit()

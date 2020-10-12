@@ -10,20 +10,6 @@ class SharedViewModel: ViewModel() {
     private val personMutableList = mutableListOf<Person>()
     val submittedPerson = MutableLiveData<Person>()
 
-    fun convertToModel(name: String, age: Int) {
-        val person = Person(name, age)
-    }
-
-    fun insertToPersonList(name: String, age: Int) {
-        try {
-            val person = Person(name, age)
-            personMutableList.add(person)
-        }
-        catch (e: Error) {
-            Log.d("ERROR", "Error when input object")
-        }
-    }
-
     fun submitNameAndAge(name: String, ageString: String) {
         val age = ageString.toInt()
         val person = Person(name, age)
