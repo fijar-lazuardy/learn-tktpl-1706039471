@@ -1,6 +1,5 @@
 package id.ac.ui.cs.mobileprogramming.fijar.tktpl.lab_5.retrofit
 
-import android.net.wifi.ScanResult
 import id.ac.ui.cs.mobileprogramming.fijar.tktpl.lab_5.model.ResponseModel
 import id.ac.ui.cs.mobileprogramming.fijar.tktpl.lab_5.model.WifiModel
 import retrofit2.Response

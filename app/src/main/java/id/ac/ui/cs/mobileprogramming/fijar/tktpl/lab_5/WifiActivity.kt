@@ -8,26 +8,20 @@ import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.net.wifi.ScanResult
 import android.net.wifi.WifiManager
-import android.os.Build
-//import androidx.appcompat.app.AppCompatActivity
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import id.ac.ui.cs.mobileprogramming.fijar.tktpl.R
 import id.ac.ui.cs.mobileprogramming.fijar.tktpl.lab_5.model.ResponseModel
 import id.ac.ui.cs.mobileprogramming.fijar.tktpl.lab_5.model.WifiModel
 import id.ac.ui.cs.mobileprogramming.fijar.tktpl.lab_5.retrofit.ApiService
 import id.ac.ui.cs.mobileprogramming.fijar.tktpl.lab_5.retrofit.RetrofitClient
-import kotlinx.android.synthetic.main.activity_wifi.*
 import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.Main
-//import android.app.
-import org.w3c.dom.Text
 import retrofit2.Response
 
 class WifiActivity : AppCompatActivity() {
