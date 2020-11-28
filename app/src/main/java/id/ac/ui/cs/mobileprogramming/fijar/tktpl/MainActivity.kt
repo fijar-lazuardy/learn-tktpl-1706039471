@@ -1,6 +1,6 @@
 package id.ac.ui.cs.mobileprogramming.fijar.tktpl
 
-import androidx.appcompat.app.AppCompatActivity
+import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 
 class MainActivity : AppCompatActivity() {
