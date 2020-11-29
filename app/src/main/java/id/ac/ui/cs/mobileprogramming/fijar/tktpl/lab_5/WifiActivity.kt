@@ -44,23 +44,27 @@ class WifiActivity : AppCompatActivity() {
             }
         }
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wifi)
         wifiManager = getSystemService(Context.WIFI_SERVICE) as WifiManager
-        btn = findViewById(R.id.button)
+        btn = findViewById(R.id.send_button)
         recyclerView = findViewById(R.id.recycler_view)
         retrofit = RetrofitClient.RETROFIT_SERVICE
-
+        val btnScan: Button = findViewById(R.id.start_scan)
         if(checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
         {
             requestPermissions(arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION), 87)
         }
 
-        val intentFilter = IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION)
-        registerReceiver(wifiScanReceiver, intentFilter)
-        wifiManager.isWifiEnabled = true
-        wifiManager.startScan()
+        btnScan.setOnClickListener {
+            val intentFilter = IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION)
+            registerReceiver(wifiScanReceiver, intentFilter)
+            wifiManager.isWifiEnabled = true
+            wifiManager.startScan()
+        }
+
 
         btn.setOnClickListener {
             GlobalScope.launch(Main) {
@@ -83,8 +87,11 @@ class WifiActivity : AppCompatActivity() {
         }
         recyclerView.layoutManager = LinearLayoutManager(this)
         val recyclerAdapter =  RecyclerAdapter(this, result)
+        runOnUiThread {
+            recyclerAdapter.notifyDataSetChanged()
+        }
         recyclerView.adapter = recyclerAdapter
-        btn.visibility = View.VISIBLE
+        btn.isEnabled = true
         unregisterReceiver(wifiScanReceiver)
     }
 
