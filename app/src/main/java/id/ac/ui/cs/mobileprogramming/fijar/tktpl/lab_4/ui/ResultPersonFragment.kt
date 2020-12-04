@@ -24,6 +24,7 @@ private const val ARG_PARAM2 = "param2"
  */
 class ResultPersonFragment : Fragment() {
     private lateinit var goodLuckText: TextView
+    private lateinit var nextYearAge: TextView
     private lateinit var viewModel: SharedViewModel
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -36,6 +37,7 @@ class ResultPersonFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_result_person, container, false)
         goodLuckText = view.findViewById(R.id.good_luck_text)
+        nextYearAge = view.findViewById(R.id.next_year_age)
         viewModel = ViewModelProvider(requireActivity())[SharedViewModel::class.java]
         val args = arguments
         viewModel.submittedPerson.observe(viewLifecycleOwner, Observer<Person> {
@@ -52,6 +54,10 @@ class ResultPersonFragment : Fragment() {
             }
             val textToBeDisplayed = "Good Luck %s on your %s".format(it.name, lifeText)
             goodLuckText.text = textToBeDisplayed
+        })
+        viewModel.nextYearAge.observe(viewLifecycleOwner, Observer {
+            val yearAge = "Next year your age will be %s".format(it.toString())
+            nextYearAge.text = yearAge
         })
         return view
     }

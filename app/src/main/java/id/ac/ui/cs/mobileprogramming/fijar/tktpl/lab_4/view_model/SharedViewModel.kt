@@ -8,10 +8,15 @@ import java.lang.Error
 
 class SharedViewModel: ViewModel() {
     val submittedPerson = MutableLiveData<Person>()
+    val nextYearAge = MutableLiveData<Int>()
 
     fun submitNameAndAge(name: String, ageString: String) {
         val age = ageString.toInt()
         val person = Person(name, age)
         submittedPerson.value = person
+    }
+
+    fun addAge(age: Int) {
+        nextYearAge.value = age
     }
 }

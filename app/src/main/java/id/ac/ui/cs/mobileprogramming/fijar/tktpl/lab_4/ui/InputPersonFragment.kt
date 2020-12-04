@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import id.ac.ui.cs.mobileprogramming.fijar.tktpl.R
 import id.ac.ui.cs.mobileprogramming.fijar.tktpl.lab_4.Lab4Activity
+import id.ac.ui.cs.mobileprogramming.fijar.tktpl.lab_4.external.Age
 import id.ac.ui.cs.mobileprogramming.fijar.tktpl.lab_4.view_model.SharedViewModel
 
 // TODO: Rename parameter arguments, choose names that match
@@ -24,6 +25,7 @@ private const val ARG_PARAM2 = "param2"
  */
 class InputPersonFragment : Fragment() {
     private lateinit var viewModel: SharedViewModel
+    private val ageClass = Age()
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -40,6 +42,8 @@ class InputPersonFragment : Fragment() {
         val button: Button = view.findViewById(R.id.submit_button)
         button.setOnClickListener{
             viewModel.submitNameAndAge(personName.text.toString(), personAge.text.toString())
+            val nextYearAge = addAge(personAge.text.toString().toInt())
+            viewModel.addAge(nextYearAge)
             val fragment = ResultPersonFragment()
             fragment.arguments = arguments
             val ft = fragmentManager?.beginTransaction()
@@ -48,5 +52,9 @@ class InputPersonFragment : Fragment() {
             ft?.commit()
         }
         return view
+    }
+
+    fun addAge(age: Int): Int {
+        return ageClass.addAge(age)
     }
 }
