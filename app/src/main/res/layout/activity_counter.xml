@@ -29,23 +29,23 @@
             android:orientation="horizontal"
             android:weightSum="2">
             <Button
-                android:id="@+id/add_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#FF448AFF"
-                android:text="+"
-                android:textStyle="bold"
-                android:textColor="#000"
-                style="?android:attr/buttonBarButtonStyle"
-                />
-            <Button
                 android:id="@+id/min_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#FF448AFF"
                 android:text="-"
+                android:textStyle="bold"
+                android:textColor="#000"
+                style="?android:attr/buttonBarButtonStyle"
+                />
+            <Button
+                android:id="@+id/add_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#FF448AFF"
+                android:text="+"
                 android:textStyle="bold"
                 android:textColor="#000"
                 style="?android:attr/buttonBarButtonStyle"
